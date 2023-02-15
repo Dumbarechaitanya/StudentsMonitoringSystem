@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class homepage extends JFrame implements ActionListener {
     JMenuBar mb;
-    JButton home ,register,profile;
+    JButton home ,register,profile,logout;
 
 
     homepage(){
@@ -27,6 +27,13 @@ public class homepage extends JFrame implements ActionListener {
         profile = new JButton("Profile");
         profile.addActionListener(this);
         mb.add(profile);
+        ImageIcon i5 = new ImageIcon(ClassLoader.getSystemResource("images/logout.png"));
+        Image i7 =i5.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH);
+        ImageIcon i8 =new ImageIcon(i7);
+        logout = new JButton(i8);
+        logout.setBounds(540, 0, 50, 50);
+        logout.addActionListener(this);
+        add(logout);
 
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("images/2.png"));
@@ -52,6 +59,10 @@ public class homepage extends JFrame implements ActionListener {
         }
         else if (e.getSource() == profile) {
 
+            setVisible(false);
+        }
+        else if (e.getSource() == logout) {
+            new Login();
             setVisible(false);
         }
     }
